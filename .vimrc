@@ -95,7 +95,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 " let g:UltiSnipsEditSplit="vertical"
 
 " more python helpers ----
-map <c-w> f_
 "set iskeyword-=_
 
 " ----
