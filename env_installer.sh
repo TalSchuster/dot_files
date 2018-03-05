@@ -15,4 +15,5 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/z
 # plugins
 cp -r .vim ~/.vim
 sudo apt install vim-nox-py2
+sudo pip install yapf
 mkdir ~/.vimundo
