@@ -21,5 +21,8 @@ sudo apt install vim-nox-py2
 sudo pip install yapf
 mkdir ~/.vimundo
 
+cp ~/.vimrc ~/.vimrc.old
+cp .vimrc ~/.vimrc
+
 # install c-tgas for tagbar
 sudo apt-get install exuberant-ctags
