@@ -14,7 +14,7 @@ Clone with `--recursive` for bundles:
 we don't want to modify width of panes with arrows because that will override the useful navigation between words using `option + left/right`. Instead we will use bindings that will allow vimlike navigtaion and resizing. Note: It will override the clear screen `ctrl+l`
 
 * Follow the instructions in `env_installer.sh` file 
-* This will allow a navigation between vim/tmux panes using `control+h/j/k/l` and resizing using `control+b, h/j/k/l`
+* This will allow navigating between vim/tmux panes using `control+h/j/k/l` and resizing using `control+b, h/j/k/l`
 
 # Issues
 If getting `vim-yapf-format requires vim compiled with python support`:
