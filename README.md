@@ -1,7 +1,9 @@
 # dot_files
 configuration files
 
-Clone with `--recursive` for bundles
+Clone with `--recursive` for bundles:
+
+`git clone --recursive git@github.com:TalSchuster/dot_files.git`
 
 # Good configuration for mac:
 * Install brew and tmux: http://macappstore.org/tmux/
