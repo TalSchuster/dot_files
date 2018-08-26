@@ -8,6 +8,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 ###
 # update .zshrc file paths (home dir etc)
+# Also copy any important lines form ~/.bashrc or ~/.bash_profile (such as conda path)
 # copy .zshrc file
 cp ~/.zshrc ~/.zshrc.old
 cp .zshrc ~/.zshrc
