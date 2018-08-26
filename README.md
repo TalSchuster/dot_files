@@ -15,6 +15,7 @@ we don't want to modify width of panes with arrows because that will override th
 
 * Follow the instructions in `env_installer.sh` file 
 * This will allow navigating between vim/tmux panes using `control+h/j/k/l` and resizing using `control+b, h/j/k/l`
+* Go over .vimrc file to check more of the vim bindings
 
 # Issues
 If getting `vim-yapf-format requires vim compiled with python support`:

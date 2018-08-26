@@ -1,6 +1,10 @@
 " Pathogen
 execute pathogen#infect()
 
+" Bind F8 to run python and F9 to run ipython
+nnoremap <buffer> <F8> :exec '!python' shellescape(@%, 1)<cr>
+nnoremap <buffer> <F9> :exec '!ipython -i' shellescape(@%, 1)<cr>
+
 " ycm - instead, using vim-jedi and neocomplete (faster for python)
 "
 " Disabling the apearence of function documentation (Since it could be laggy)
