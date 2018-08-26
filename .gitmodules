@@ -40,3 +40,7 @@
 [submodule ".vim/bundle/vim-yapf-format"]
 	path = .vim/bundle/vim-yapf-format
 	url = git://github.com/pignacio/vim-yapf-format
+[submodule ".vim/bundle/vim-tmux-navigator"]
+	path = .vim/bundle/vim-tmux-navigator
+	url = git@github.com:christoomey/vim-tmux-navigator.git
+	branch = master
