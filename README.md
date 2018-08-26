@@ -1,3 +1,5 @@
+This repo contains zsh, vim, tmux configurations
+
 # dot_files
 configuration files
 
