@@ -5,6 +5,14 @@ execute pathogen#infect()
 nnoremap <buffer> <F8> :exec '!python' shellescape(@%, 1)<cr>
 nnoremap <buffer> <F9> :exec '!ipython -i' shellescape(@%, 1)<cr>
 
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+
 " ycm - instead, using vim-jedi and neocomplete (faster for python)
 "
 " Disabling the apearence of function documentation (Since it could be laggy)
