@@ -13,6 +13,8 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
+:nmap <C-A> :vimgrep /<C-R><C-W>/ **/*.py\|copen 10<CR>
+
 " ycm - instead, using vim-jedi and neocomplete (faster for python)
 "
 " Disabling the apearence of function documentation (Since it could be laggy)
