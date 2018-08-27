@@ -73,7 +73,8 @@ colorscheme molokai
 set t_Co=256
 
 " fuzzy ----
-map <C-\> :FufFile <CR>
+" **/ enables search over all subdirs
+map <C-\> :FufFile **/<CR>
 
 " tagbar ----
 nmap , :TagbarToggle<CR>
