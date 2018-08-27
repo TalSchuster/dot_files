@@ -13,6 +13,7 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
+" grep from vim for the word that the cursor is currently on using control+A
 :nmap <C-A> :vimgrep /<C-R><C-W>/ **/*.py\|copen 10<CR>
 
 " ycm - instead, using vim-jedi and neocomplete (faster for python)
