@@ -1,6 +1,9 @@
 " Pathogen
 execute pathogen#infect()
 
+" tabnine
+set rtp+=$HOME/.vim/bundle/tabnine-vim
+
 " Bind F8 to run python and F9 to run ipython
 nnoremap <buffer> <F8> :exec '!python' shellescape(@%, 1)<cr>
 nnoremap <buffer> <F9> :exec '!ipython -i' shellescape(@%, 1)<cr>
@@ -47,9 +50,12 @@ let g:jedi#completions_command = "<C-Space>"
 " Documentation
 let g:jedi#documentation_command = "K"
 
-" yapf-format (auto formatting)
-map <c-f> :YapfFormat<CR>
-map <c-f><c-f> :YapfFullFormat<CR>
+" yapf-format (auto formatting) ----
+map <c-f> :'<,'>YAPF<CR>
+map <c-f><c-f> :YAPF<CR>
+
+" py-flake8 (syntax and error checker ----
+autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
 
 " syntastic (check errors and conventions) ----
 set statusline+=%#warningmsg#
@@ -66,6 +72,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeIgnore = ['\.pyc$']
 
 " Nerd commenter ----
 " Comment lines by selecting and 'leader + c + space'
@@ -83,6 +90,7 @@ map <C-\> :FufFile **/<CR>
 nmap , :TagbarToggle<CR>
 nmap <F12> <C-]>
 set tags=./tags;/
+let g:tagbar_ctags_bin='$HOME/.vim/bin/ctags'
 
 " python-mode ---- (using jedi instead)
 "set nofoldenable " disable folding
@@ -155,26 +163,43 @@ set showmatch
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
-python << EOF
-import vim
-import re
+" vim w python 2:
 
-ipdb_breakpoint = 'import ipdb; ipdb.set_trace()'
+"python << EOF
+"import vim
+"import re
+"
+"
+"ipdb_breakpoint = 'import ipdb; ipdb.set_trace()'
+"
+"def set_breakpoint():
+"    breakpoint_line = int(vim.eval('line(".")')) - 1
+"
+"    current_line = vim.current.line
+"    white_spaces = re.search('^(\s*)', current_line).group(1)
+"
+"    vim.current.buffer.append(white_spaces + ipdb_breakpoint, breakpoint_line)
+"
+"vim.command('map <f6> :py set_breakpoint()<cr>')
+"
+"def remove_breakpoints():
+"    op = 'g/^.*%s.*/d' % ipdb_breakpoint
+"    vim.command(op)
+"
+"vim.command('map <f7> :py remove_breakpoints()<cr>')
+"EOF
 
-def set_breakpoint():
-    breakpoint_line = int(vim.eval('line(".")')) - 1
+" vim w python 3:
 
-    current_line = vim.current.line
-    white_spaces = re.search('^(\s*)', current_line).group(1)
+func! s:SetBreakpoint()
+    cal append('.', repeat(' ', strlen(matchstr(getline('.'), '^\s*'))) . 'import ipdb; ipdb.set_trace()')
+endf
 
-    vim.current.buffer.append(white_spaces + ipdb_breakpoint, breakpoint_line)
+func! s:RemoveBreakpoint()
+    exe 'silent! g/^\s*import\sipdb\;\?\n*\s*ipdb.set_trace()/d'
+endf
 
-vim.command('map <f6> :py set_breakpoint()<cr>')
-
-def remove_breakpoints():
-    op = 'g/^.*%s.*/d' % ipdb_breakpoint
-    vim.command(op)
-
-vim.command('map <f7> :py remove_breakpoints()<cr>')
-EOF
-
+func! s:ToggleBreakpoint()
+    if getline('.')=~#'^\s*import\sipdb' | cal s:RemoveBreakpoint() | el | cal s:SetBreakpoint() | en
+endf
+nnoremap <F6> :call <SID>ToggleBreakpoint()<CR>
