@@ -44,6 +44,19 @@ nnoremap <F6> :call <SID>ToggleBreakpoint()<CR>
 ```
 This would allow using F6 to toggle an ipdb breakpoint
 
+## Install vim with python3 on Mac
+
+```
+brew reinstall python3
+brew install vim
+```
+
+Then add to `.zshrc`:
+```
+export VIM_HOME=/opt/homebrew/bin/vim
+export PATH=$PATH:$VIM_HOME/bin
+```
+
 ## TODO
 
 mapping for fugitive (git) commands
