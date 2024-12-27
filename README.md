@@ -63,6 +63,7 @@ Then add to `.zshrc`:
 export VIM_HOME=/opt/homebrew/bin/vim
 export PATH=$PATH:$VIM_HOME/bin
 ```
+exit terminal and open it again.
 
 ## TODO
 
