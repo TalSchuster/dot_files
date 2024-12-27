@@ -3,9 +3,16 @@ This repo contains zsh, vim, tmux configurations
 # dot_files
 configuration files
 
-Clone with `--recursive` for bundles:
+~~Clone with `--recursive` for bundles:~~
 
-`git clone --recursive https://github.com/TalSchuster/dot_files.git`
+~~`git clone --recursive https://github.com/TalSchuster/dot_files.git`~~
+
+Use Vundle:
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+Launch vim and run `:PluginInstall` or install from cmd: `vim +PluginInstall +qall`
 
 # Good configuration for mac:
 * Install Rectangle for window alignments
