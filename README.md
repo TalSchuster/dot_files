@@ -8,8 +8,10 @@ Clone with `--recursive` for bundles:
 `git clone --recursive https://github.com/TalSchuster/dot_files.git`
 
 # Good configuration for mac:
+* Install Rectangle for window alignments
 * Install brew and tmux: http://macappstore.org/tmux/
 * Install conda: https://www.anaconda.com/download/#macos (optional)
+* Make caps lock switch language: [link](https://support.apple.com/guide/mac-help/write-in-another-language-on-mac-mchlp1406/mac)
 * Install iterm2 https://www.iterm2.com/
 * Configure iterm2: go to `Preferences -> profile -> keys`. Load preset `Natural Text Editing`. Make sure that the option keys are sending `Esc+` (bottom right radio bottons on the same screen). That should let you modify up/down pane size inside tmux using `control+b, option+up/down`
 
